@@ -41,11 +41,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
     public static final String AVATAR_URL = "http://lorempixel.com/200/200/people/1/";
     public static final String[] Items = {"Mega Events","Technical","Sports","Literary","Coding","Fun Events"};
+    public static final int[] Imgs = {R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,
+                            R.drawable.pic4,R.drawable.pic5,R.drawable.pic6};
     private static List<ViewModel> items = new ArrayList<>();
 
     static {
-        for (int i = 1; i <= 6; i++) {
-            items.add(new ViewModel("Item " + i, "http://lorempixel.com/500/500/animals/" + i));
+        for (int i = 0; i < 6; i++) {
+            items.add(new ViewModel(Items[i],Imgs[i]));
         }
     }
 

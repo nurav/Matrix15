@@ -18,9 +18,9 @@ package com.antonioleiva.materializeyourapp;
 
 public class ViewModel {
     private String text;
-    private String image;
+    private int image;
 
-    public ViewModel(String text, String image) {
+    public ViewModel(String text, int image) {
         this. text = text;
         this.image = image;
     }
@@ -29,7 +29,7 @@ public class ViewModel {
         return text;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 }
