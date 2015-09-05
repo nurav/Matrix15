@@ -19,15 +19,22 @@ package com.antonioleiva.materializeyourapp;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.antonioleiva.materializeyourapp.picasso.CircleTransform;
@@ -37,7 +44,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.OnItemClickListener {
+public class CategoriesActivity extends AppCompatActivity implements RecyclerViewAdapter.OnItemClickListener {
 
     public static final String AVATAR_URL = "http://lorempixel.com/200/200/people/1/";
     public static final String[] Items = {"Mega Events","Technical","Sports","Literary","Coding","Fun Events"};
@@ -53,16 +60,32 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
     private DrawerLayout drawerLayout;
     private View content;
+    private ViewPager mPager;
+    private YourPagerAdapter mAdapter;
+    private TabLayout mTabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initRecyclerView();
-        initFab();
+        //initRecyclerView();
+        //initFab();
         initToolbar();
         setupDrawerLayout();
+
+        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        mAdapter = new YourPagerAdapter(getSupportFragmentManager());
+        mPager = (ViewPager) findViewById(R.id.view_pager);
+        mPager.setAdapter(mAdapter);
+        //Notice how the Tab Layout links with the Pager Adapter
+        mTabLayout.setTabsFromPagerAdapter(mAdapter);
+
+        //Notice how The Tab Layout adn View Pager object are linked
+        mTabLayout.setupWithViewPager(mPager);
+        mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+
+
 
         content = findViewById(R.id.content);
 
@@ -70,22 +93,22 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         Picasso.with(this).load(AVATAR_URL).transform(new CircleTransform()).into(avatar);
     }
 
-    private void initRecyclerView() {
+    /*private void initRecyclerView() {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(items);
 
         adapter.setOnItemClickListener(this);
         recyclerView.setAdapter(adapter);
-    }
+    }*/
 
-    private void initFab() {
+/*    private void initFab() {
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Snackbar.make(content, "FAB Clicked", Snackbar.LENGTH_SHORT).show();
             }
         });
-    }
+    }*/
 
     private void initToolbar() {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -126,4 +149,64 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
     @Override public void onItemClick(View view, ViewModel viewModel) {
         DetailActivity.navigate(this, view.findViewById(R.id.image), viewModel);
     }
+
+    public static class MyFragment extends Fragment {
+        public static final java.lang.String ARG_PAGE = "arg_page";
+
+
+        public MyFragment() {
+
+        }
+
+        public static MyFragment newInstance(int pageNumber) {
+            MyFragment myFragment = new MyFragment();
+            Bundle arguments = new Bundle();
+            arguments.putInt(ARG_PAGE, pageNumber + 1);
+            myFragment.setArguments(arguments);
+            return myFragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            Bundle arguments = getArguments();
+            int pageNumber = arguments.getInt(ARG_PAGE);
+            RecyclerView recyclerView = new RecyclerView(getActivity());
+            //recyclerView.setAdapter(new YourRecyclerAdapter(getActivity()));
+            RecyclerViewAdapter adapter = new RecyclerViewAdapter(items);
+            adapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, ViewModel viewModel) {
+                    DetailActivity.navigate((AppCompatActivity) getActivity(), view.findViewById(R.id.image), viewModel);
+                }
+            });
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            return recyclerView;
+        }
+    }
 }
+
+class YourPagerAdapter extends FragmentStatePagerAdapter {
+
+    public YourPagerAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        CategoriesActivity.MyFragment myFragment = CategoriesActivity.MyFragment.newInstance(position);
+        return myFragment;
+    }
+
+    @Override
+    public int getCount() {
+        return 4;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return "Tab " + (position + 1);
+    }
+
+}
+
