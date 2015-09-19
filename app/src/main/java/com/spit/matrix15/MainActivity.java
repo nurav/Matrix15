@@ -1,6 +1,8 @@
 package com.spit.matrix15;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,8 +25,10 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<HashMap<String, String>> eventsList;
     JSONParser jParser = new JSONParser();
 
+//    SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("DBVer", 0);
+
     //url to get all events
-    private static String url_all_events = "http://localhost/Matrix/get_all_events.php";
+    private static String url_all_events = "http://imgshr.webege.com/Matrix/get_all_events.php";
 
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
@@ -38,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_CONTACT2 = "contact2";
     private static final String TAG_FEE = "fee";
     private static final String TAG_VENUE = "venue";
-    private static final String TAG_DAY1 = "time_start_day1";
-    private static final String TAG_DAY2 = "duration_day2";
     private static final String TAG_EVENTHIGHLIGHT1 = "eventhighlight1";
     private static final String TAG_EVENTHIGHLIGHT2 = "eventhighlight2";
     private static final String TAG_EVENTHIGHLIGHT3 = "eventhighlight3";
@@ -81,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
     class LoadAllEvents extends AsyncTask<String, String, String>   {
 
+        private EventsDataSource eventsDataSource;
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -120,8 +124,6 @@ public class MainActivity extends AppCompatActivity {
                         String eventhightlight2 = c.getString(TAG_EVENTHIGHLIGHT2);
                         String eventhightlight3 = c.getString(TAG_EVENTHIGHLIGHT3);
                         String category = c.getString(TAG_CATEGORY);
-                        String day1 = c.getString(TAG_DAY1);
-                        String day2 = c.getString(TAG_DAY2);
                         String postername = c.getString(TAG_POSTERNAME);
 
 
@@ -141,8 +143,6 @@ public class MainActivity extends AppCompatActivity {
                         map.put(TAG_EVENTHIGHLIGHT2, eventhightlight2);
                         map.put(TAG_EVENTHIGHLIGHT3, eventhightlight3);
                         map.put(TAG_CATEGORY, category);
-                        map.put(TAG_DAY1, day1);
-                        map.put(TAG_DAY2, day2);
                         map.put(TAG_POSTERNAME, postername);
 
                         // adding HashList to ArrayList
@@ -164,6 +164,17 @@ public class MainActivity extends AppCompatActivity {
                     SET LIST ADAPTER HERE
                     USE eventsList list in the adapter
                      */
+//                    SharedPreferences.Editor editor = sharedPreferences.edit();
+//                    editor.putInt("ver", sharedPreferences.getInt("ver", 1) + 1);
+//                    Do this when refreshing
+//                    int version = sharedPreferences.getInt("ver", 1);
+
+                    eventsDataSource = new EventsDataSource(getApplicationContext(), 1);
+                    eventsDataSource.open();
+
+                    eventsDataSource.insertListIntoSQLite(eventsList);
+
+                    startActivity(new Intent(getApplicationContext(), CategoriesActivity.class));
                 }
             });
 
