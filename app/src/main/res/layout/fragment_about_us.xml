@@ -70,15 +70,15 @@
                         android:layout_marginLeft="@dimen/spacing_large"
                         android:layout_marginRight="@dimen/spacing_large"
                         android:layout_marginTop="@dimen/spacing_large"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+                        android:text="@string/about_us_text"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
-                    <TextView
-                        android:id="@+id/about_us_description"
+
+                    <com.google.android.gms.maps.MapView
+                        android:id="@+id/college_location_map"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/spacing_large"
-                        android:text="lorem_ipsum"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+                        android:layout_height="300dp"/>
+
 
                 </LinearLayout>
 

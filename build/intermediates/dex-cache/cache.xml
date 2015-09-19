@@ -2,67 +2,221 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
-        <dex dex="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\pre-dexed\debug\classes-ea5600978ee13f99d6d69a4aaf3950938978debb.jar" />
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-768868769c707299689a97acf1723f05b7cd948d.jar" />
     </item>
     <item
-        jar="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.2.0\jars\classes.jar"
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="97f7e239e86ef994de894818fdd8a71d2e89d6aa">
-        <dex dex="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\pre-dexed\debug\classes-a4b0c8d7cd854f6d14d43f805ad0ab2075521147.jar" />
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-053d9c8d6d2d2f624a0964198e0cfc56df48c1ac.jar" />
     </item>
     <item
-        jar="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.android.support\palette-v7\22.2.1\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\pre-dexed\debug\classes-7f0a5194048a0916f0d8e846971c556cb9242e73.jar" />
+        sha1="d3aba1c188fea5ee83ebbcb458be29d1cc0ef483">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-4100b5a79faf1edb3d55c02c16b2cfc8f1580391.jar" />
     </item>
     <item
-        jar="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\exploded-aar\com.android.support\palette-v7\22.2.0\jars\classes.jar"
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="060b30a619b8d3ba053e1d7dc08b3fdf0dd81530">
-        <dex dex="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\pre-dexed\debug\classes-ce6a6444d487d37cbbb9d818233801ada11e1333.jar" />
+        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-b1ffde30b1fa17c21ffbb0420c6f0b96a3db3774.jar" />
     </item>
     <item
-        jar="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\pre-dexed\debug\classes-ae1bc111badf6d7c8c83dbe35409c1f0495138ca.jar" />
+        sha1="2491ae1b2a848af1f4f0c795f3117c1bd6a1989f">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-f1dd2439ccba1e657ff9498f49cefaa5ebbce753.jar" />
     </item>
     <item
-        jar="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.0\jars\classes.jar"
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="5b37cf49773f7f17aca9830efd3053b0cac56728">
-        <dex dex="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\pre-dexed\debug\classes-d9d313e99b7508e30335448da4bd0231f0589103.jar" />
+        sha1="c5cafb324568d954780abb858c25db7ce675ab3c">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-577ebe6e0203e86bbd77215eab457a2a13500e79.jar" />
     </item>
     <item
-        jar="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-09eb48fd98366f109d21747bfc4e05bc32ae13cd.jar" />
+        sha1="b99f0b78bbcb76b915bc6529a83b65d4d46990dd">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-10647b661421da7d6410f11006d2ecf7dd6a8054.jar" />
     </item>
     <item
-        jar="C:\Users\Kshitij\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.4.0\f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2\picasso-2.4.0.jar"
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.1\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
-        <dex dex="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\pre-dexed\debug\picasso-2.4.0-6b86817d3268ab24be41d22bf3aedb5257d95751.jar" />
+        sha1="3abb4b88f5a8a0584a9b01d3170d7165f12f8588">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-2c2fd597b15a4a378c94b392e418bb41e2b14bab.jar" />
     </item>
     <item
-        jar="C:\adt-bundle-windows-x86_64-20140702\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\Kshitij\AndroidStudioProjects\Matrix15\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-421e22a24ede37544b83555e5621cdefc25953b3.jar" />
+        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-93f276dd40cd26d44c6fdaa997ed35ec3b76c038.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="77a9dcb5f8b1dba36aacaa9c150eb0942dbea158">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-3126f3eaa34e11a175a7c57227e7441980e7e5be.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="98137c4d12c50923f5809852b1ef4d1c4e162081">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-19ee9714e80533f3b39e35aead16e1b87c992bea.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="adebe28e0c0c05d34a3bfd76f3275bf4d8ff87b6">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-16188edb9d5969cf46ccffec11968bc1a0f01c4c.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-fad044a39ddd4972e2dbe29c7a93b316631a582f.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="166e458ee3b5fb5fcff0f936df3f3a788e6c54f3">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-8bb4681ce883327bc5a7105bd8175f2b0e8147da.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="130b32ed466fa0f63efd4c7d6250ccd2ed506790">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-91b3e91bc2db853324e4fd47ac3418ebaff8da0d.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="42a1ee578b62fd1bd28b3307a679dc9ba0791587">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-4c16325ed69bba2a1a9833d622feaca4a5aaec10.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-88149bc4adeed69121306346a08f3c1f0b07a176.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4a135d56554069e5d0ff80e3220e887e57146ee5">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-beb931bf8721587cc07bf9d1a7a1aecfd65c05c8.jar" />
+    </item>
+    <item
+        jar="D:\Programs\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-96fdac13e16cb4032e90c2e8d93b61c4ea80aa5f.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e1fa5e1123997a55e3ed65b44892993ff4b58cfe">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-6e823e98cdf43186125425af8b46634a1f3832b2.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c0c912d58c9468b1f9d9769c8975afdf2c85d681">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-f857bb47daccf473b303d5d3c3728525fbfec20e.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0124ce31248c0e8acfa2b28283c6d1a4d76e73d2">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-7ffc2a2f3993111143f86e355cbd85ee9c674ec3.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d11330ea68c0d964d30d5caed1f27e6b1488b189">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-e775d58689bb791608585aa562d5598c02e9255c.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="2e24e5f1b11170163028277de63f709e42525db4">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-ca0154133d502b85994426cbad6720524fd1ad36.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="cb6fab7a71fa9ec1f483d44c5fca65ab469d8aca">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-82705c54017736001683eeeb9f3784293783a82f.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ff30fa49c07a08c3035d7218a3efebf5680d522">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-9914edaf769a07e6b6baa1145dd5a1a6b2977a40.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e23ea11124bb700eeddd4ab7aa848c615f493850">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-055a781258a64007f43a94d5cfa88cc2a8f65449.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="edea92852b40eee716e910af8dad9eeaa58fb0e1">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-473106e221900c0d057250b8000ac04ad4efc772.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c2ac04c5b232f6f0658ee4f1c13be09cd76406e2">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-750d9dd9bb0abb6773158f934a041aef148f9685.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.android.support\design\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1821601ddbec5ff125653097812823388700af74">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-0233add997c9d04ef166cf33958351d0950407d2.jar" />
+    </item>
+    <item
+        jar="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6e85edfc9b5346d216e50ccef1f8e825504144a3">
+        <dex dex="D:\Downloads\Matrix15-vishesh\Matrix15-vishesh\app\build\intermediates\pre-dexed\debug\classes-80878d3a742f8fbae4febda5695f95c68208161c.jar" />
     </item>
 
 </items>
