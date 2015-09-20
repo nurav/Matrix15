@@ -49,11 +49,21 @@ public class EventsDataSource {
 
     private EventData cursorToExpenseData(Cursor cursor) {
         EventData eventData = new EventData();
+
         eventData.setId(String.valueOf(cursor.getLong(0)));
         eventData.setName(cursor.getString(1));
-//        expenseData.setAmount(cursor.getFloat(2));
-//        expenseData.setCategory(cursor.getString(3));
-//        expenseData.setNote(cursor.getString(4));
+        eventData.setDesc(cursor.getString(2));
+        eventData.setEmail(cursor.getString(3));
+        eventData.setContact1(cursor.getString(4));
+        eventData.setContact2(cursor.getString(5));
+        eventData.setFee(cursor.getString(6));
+        eventData.setVenue(cursor.getString(7));
+        eventData.setEventhightlight1(cursor.getString(8));
+        eventData.setEventhightlight2(cursor.getString(9));
+        eventData.setEventhightlight3(cursor.getString(10));
+        eventData.setCategory(cursor.getString(11));
+        eventData.setPostername(cursor.getString(12));
+
         return eventData;
     }
 
