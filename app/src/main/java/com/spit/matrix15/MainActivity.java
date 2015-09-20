@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             JSONObject json = jParser.makeHttpRequest(url_all_events, "GET", params);
-            Log.d("All Products: ", json.toString());
 
             try {
                 jsonObject = new JSONObject(json.toString());

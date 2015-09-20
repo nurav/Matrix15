@@ -5,10 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,8 +41,6 @@ public class EventsDataSource {
                 String value = mapEntry.getValue();
                 contentValues.put(key, value);
             }
-
-            Log.d("TEST", String.valueOf(contentValues));
 
             long insertId = database.insert(EventSQLiteHelper.TABLE_Events, null,
                     contentValues);
