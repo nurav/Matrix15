@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,10 +20,10 @@ public class EventsDataSource {
     private SQLiteDatabase database;
     private EventSQLiteHelper dbHelper;
 
-    private String[] allColumns = { EventSQLiteHelper.COLUMN_contact1,
-            EventSQLiteHelper.COLUMN_contact2, EventSQLiteHelper.COLUMN_category, EventSQLiteHelper.COLUMN_id, EventSQLiteHelper.COLUMN_desc, EventSQLiteHelper.COLUMN_email,
-            EventSQLiteHelper.COLUMN_eventhightlight1, EventSQLiteHelper.COLUMN_eventhightlight2, EventSQLiteHelper.COLUMN_eventhightlight3, EventSQLiteHelper.COLUMN_fee,
-            EventSQLiteHelper.COLUMN_postername, EventSQLiteHelper.COLUMN_venue, EventSQLiteHelper.COLUMN_name };
+    private String[] allColumns = { EventSQLiteHelper.COLUMN_id,
+            EventSQLiteHelper.COLUMN_name, EventSQLiteHelper.COLUMN_desc, EventSQLiteHelper.COLUMN_email, EventSQLiteHelper.COLUMN_contact1, EventSQLiteHelper.COLUMN_contact2,
+            EventSQLiteHelper.COLUMN_fee, EventSQLiteHelper.COLUMN_venue, EventSQLiteHelper.COLUMN_eventhightlight1, EventSQLiteHelper.COLUMN_eventhightlight2,
+            EventSQLiteHelper.COLUMN_eventhightlight3, EventSQLiteHelper.COLUMN_category, EventSQLiteHelper.COLUMN_postername };
 
     public EventsDataSource(Context context, int version) {
         dbHelper = new EventSQLiteHelper(context, version);
@@ -44,6 +45,9 @@ public class EventsDataSource {
                 String value = mapEntry.getValue();
                 contentValues.put(key, value);
             }
+
+            Log.d("TEST", String.valueOf(contentValues));
+
             long insertId = database.insert(EventSQLiteHelper.TABLE_Events, null,
                     contentValues);
         }

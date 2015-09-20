@@ -29,9 +29,9 @@ public class EventSQLiteHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_CREATE = "CREATE TABLE "+ TABLE_Events + "(" + COLUMN_id + " INTEGER PRIMARY KEY, "
             + COLUMN_name + " TEXT NOT NULL," + COLUMN_desc + " TEXT, " + COLUMN_email +
-            " TEXT, " + COLUMN_contact1 + " TEXT NOT NULL, " + COLUMN_contact2 + " TEXT, " + COLUMN_fee + "TEXT NOT NULL, " +
-            COLUMN_venue + "TEXT, " + COLUMN_eventhightlight1 + "TEXT, " + COLUMN_eventhightlight2 + "TEXT, " +
-            COLUMN_eventhightlight3 + "TEXT, " + COLUMN_category + "TEXT, " + COLUMN_postername + "TEXT"
+            " TEXT, " + COLUMN_contact1 + " TEXT, " + COLUMN_contact2 + " TEXT, " + COLUMN_fee + " TEXT, " +
+            COLUMN_venue + " TEXT, " + COLUMN_eventhightlight1 + " TEXT, " + COLUMN_eventhightlight2 + " TEXT, " +
+            COLUMN_eventhightlight3 + " TEXT, " + COLUMN_category + " TEXT, " + COLUMN_postername + " TEXT"
             + ");";
 
     public EventSQLiteHelper(Context context, int version) {

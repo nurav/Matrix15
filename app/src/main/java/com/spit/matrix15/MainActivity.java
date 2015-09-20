@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
 //    SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("DBVer", 0);
 
     //url to get all events
-    private static String url_all_events = "http://imgshr.webege.com/Matrix/get_all_events.php";
+    private static String url_all_events = "http://matrixthefest.org/get_all_events.php";
 
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
-    private static final String TAG_PRODUCTS = "events";
+    private static final String TAG_EVENTS = "event";
     private static final String TAG_ID = "event_id";
     private static final String TAG_NAME = "event_name";
     private static final String TAG_DESC = "event_desciption";
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_EVENTHIGHLIGHT3 = "eventhighlight3";
     private static final String TAG_POSTERNAME = "eventposter";
 
+    JSONObject jsonObject = null;
     JSONArray events = null;
 
     @Override
@@ -102,52 +104,51 @@ public class MainActivity extends AppCompatActivity {
             Log.d("All Products: ", json.toString());
 
             try {
-                int success = json.getInt(TAG_SUCCESS);
-                if (success == 1) {
-                    // Getting Array of Products
-                    events = json.getJSONArray(TAG_PRODUCTS);
+                jsonObject = new JSONObject(json.toString());
 
-                    // looping through All Events
-                    for (int i = 0; i < events.length(); i++) {
-                        JSONObject c = events.getJSONObject(i);
+                // Getting Array of Products
+                events = jsonObject.getJSONArray(TAG_EVENTS);
 
-                        // Storing each json item in variable
-                        String id = c.getString(TAG_ID);
-                        String name = c.getString(TAG_NAME);
-                        String desc = c.getString(TAG_DESC);
-                        String email = c.getString(TAG_EMAIL);
-                        String contact1 = c.getString(TAG_CONTACT1);
-                        String contact2 = c.getString(TAG_CONTACT2);
-                        String fee = c.getString(TAG_FEE);
-                        String venue = c.getString(TAG_VENUE);
-                        String eventhightlight1 = c.getString(TAG_EVENTHIGHLIGHT1);
-                        String eventhightlight2 = c.getString(TAG_EVENTHIGHLIGHT2);
-                        String eventhightlight3 = c.getString(TAG_EVENTHIGHLIGHT3);
-                        String category = c.getString(TAG_CATEGORY);
-                        String postername = c.getString(TAG_POSTERNAME);
+                // looping through All Events
+                for (int i = 0; i < events.length(); i++) {
+                    JSONObject c = events.getJSONObject(i);
+
+                    // Storing each json item in variable
+                    String id = c.getString(TAG_ID);
+                    String name = c.getString(TAG_NAME);
+                    String desc = c.getString(TAG_DESC);
+                    String email = c.getString(TAG_EMAIL);
+                    String contact1 = c.getString(TAG_CONTACT1);
+                    String contact2 = c.getString(TAG_CONTACT2);
+                    String fee = c.getString(TAG_FEE);
+                    String venue = c.getString(TAG_VENUE);
+                    String eventhightlight1 = c.getString(TAG_EVENTHIGHLIGHT1);
+                    String eventhightlight2 = c.getString(TAG_EVENTHIGHLIGHT2);
+                    String eventhightlight3 = c.getString(TAG_EVENTHIGHLIGHT3);
+                    String category = c.getString(TAG_CATEGORY);
+                    String postername = c.getString(TAG_POSTERNAME);
 
 
-                        // creating new HashMap
-                        HashMap<String, String> map = new HashMap<String, String>();
+                    // creating new HashMap
+                    HashMap<String, String> map = new HashMap<String, String>();
 
-                        // adding each child node to HashMap key => value
-                        map.put(TAG_ID, id);
-                        map.put(TAG_NAME, name);
-                        map.put(TAG_DESC, desc);
-                        map.put(TAG_EMAIL, email);
-                        map.put(TAG_CONTACT1, contact1);
-                        map.put(TAG_CONTACT2, contact2);
-                        map.put(TAG_FEE, fee);
-                        map.put(TAG_VENUE, venue);
-                        map.put(TAG_EVENTHIGHLIGHT1, eventhightlight1);
-                        map.put(TAG_EVENTHIGHLIGHT2, eventhightlight2);
-                        map.put(TAG_EVENTHIGHLIGHT3, eventhightlight3);
-                        map.put(TAG_CATEGORY, category);
-                        map.put(TAG_POSTERNAME, postername);
+                    // adding each child node to HashMap key => value
+                    map.put(TAG_ID, id);
+                    map.put(TAG_NAME, name);
+                    map.put(TAG_DESC, desc);
+                    map.put(TAG_EMAIL, email);
+                    map.put(TAG_CONTACT1, contact1);
+                    map.put(TAG_CONTACT2, contact2);
+                    map.put(TAG_FEE, fee);
+                    map.put(TAG_VENUE, venue);
+                    map.put(TAG_EVENTHIGHLIGHT1, eventhightlight1);
+                    map.put(TAG_EVENTHIGHLIGHT2, eventhightlight2);
+                    map.put(TAG_EVENTHIGHLIGHT3, eventhightlight3);
+                    map.put(TAG_CATEGORY, category);
+                    map.put(TAG_POSTERNAME, postername);
 
-                        // adding HashList to ArrayList
-                        eventsList.add(map);
-                    }
+                    // adding HashList to ArrayList
+                    eventsList.add(map);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
