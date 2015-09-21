@@ -119,7 +119,10 @@ public class SplashActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(getApplicationContext(), CategoriesActivity.class));
+                    Intent i = new Intent(getApplicationContext(), CategoriesActivity.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                    finish();
                 }
             });
         }
@@ -208,7 +211,10 @@ public class SplashActivity extends AppCompatActivity {
 //                    int version = sharedPreferences.getInt("ver", 1);
 
 
-                    startActivity(new Intent(getApplicationContext(), CategoriesActivity.class));
+                    Intent i = new Intent(getApplicationContext(), CategoriesActivity.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                    finish();
                 }
             });
 

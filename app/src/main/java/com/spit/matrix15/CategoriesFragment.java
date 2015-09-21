@@ -112,7 +112,8 @@ public class CategoriesFragment extends Fragment {
     private void initToolbar() {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         final Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
-        activity.setSupportActionBar(toolbar);
+        if (toolbar != null)
+            activity.setSupportActionBar(toolbar);
         final ActionBar actionBar = activity.getSupportActionBar();
 
         if (actionBar != null) {

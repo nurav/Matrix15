@@ -41,7 +41,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CategoriesActivity extends AppCompatActivity implements RecyclerViewAdapter.OnItemClickListener, AboutUsFragment.OnFragmentInteractionListener, CategoriesFragment.OnFragmentInteractionListener, DevelopersFragment.OnFragmentInteractionListener {
+public class CategoriesActivity extends AppCompatActivity
+        implements RecyclerViewAdapter.OnItemClickListener,
+        AboutUsFragment.OnFragmentInteractionListener,
+        CategoriesFragment.OnFragmentInteractionListener,
+        DevelopersFragment.OnFragmentInteractionListener,
+        AllEventsFragment.OnFragmentInteractionListener
+{
 
     public static final String AVATAR_URL = "http://lorempixel.com/200/200/people/1/";
     public static final String[] Items = {"Mega Events","Technical","Sports","Literary","Coding","Fun Events"};
@@ -148,7 +154,7 @@ public class CategoriesActivity extends AppCompatActivity implements RecyclerVie
 
     @Override
     public void onBackPressed (){
-        
+        System.exit(0);
     }
 
     private void setupDrawerLayout() {
@@ -173,6 +179,9 @@ public class CategoriesActivity extends AppCompatActivity implements RecyclerVie
                         ft.replace(R.id.fragment_container, new DevelopersFragment());
                         ft.commit();
                         break;
+                    case R.id.drawer_more:
+                        ft.replace(R.id.fragment_container, new AllEventsFragment());
+                        ft.commit();
 
                 }
 //                Snackbar.make(content, menuItem.getTitle() + " pressed", Snackbar.LENGTH_LONG).show();

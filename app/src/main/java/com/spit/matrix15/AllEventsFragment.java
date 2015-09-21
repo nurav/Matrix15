@@ -3,10 +3,16 @@ package com.spit.matrix15;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -63,8 +69,28 @@ public class AllEventsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        List<Event> events = Event.listAll(Event.class);
+        List<ViewModel> items = new ArrayList<>();
+        for (Event event : events) {
+            items.add(new ViewModel(event.eventName, "http://matrixthefest.org/app_posters/" + event.eventPoster));
+        }
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_all_events, container, false);
+        RecyclerView recyclerView = new RecyclerView(getActivity());
+        RecyclerViewAdapter adapter;
+
+        adapter = new RecyclerViewAdapter(items);
+
+        //recyclerView.setAdapter(new YourRecyclerAdapter(getActivity()));
+
+        adapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, ViewModel viewModel) {
+                DetailActivity.navigate((AppCompatActivity) getActivity(), view.findViewById(R.id.image), viewModel);
+            }
+        });
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        return recyclerView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

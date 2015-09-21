@@ -47,9 +47,10 @@ public class EventCloud extends View {
     }
 
     private void init() {
+        List<Event> events = Event.listAll(Event.class);
         List<String> items = new ArrayList<String>();
-        for (int i = 0; i < 10; i++) {
-            items.add("item:" + i);
+        for (Event event : events) {
+            items.add(event.eventName);
         }
         setItems(items);
     }
