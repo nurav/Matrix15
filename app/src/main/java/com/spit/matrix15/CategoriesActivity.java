@@ -47,13 +47,16 @@ public class CategoriesActivity extends AppCompatActivity implements RecyclerVie
     public static final String[] Items = {"Mega Events","Technical","Sports","Literary","Coding","Fun Events"};
     public static final int[] Imgs = {R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,
                             R.drawable.pic4,R.drawable.pic5,R.drawable.pic6};
-    private static List<ViewModel> items = new ArrayList<>();
+    private static List<ViewModel> funItems = new ArrayList<>();
+    private static List<ViewModel> codingItems = new ArrayList<>();
+    private static List<ViewModel> preItems = new ArrayList<>();
+    private static List<ViewModel> litItems = new ArrayList<>();
 
     static {
-        for (int i = 0; i < 6; i++) {
-            items.add(new ViewModel(Items[i],Imgs[i]));
-        }
+
     }
+
+
 
     private DrawerLayout drawerLayout;
     private View content;
@@ -75,6 +78,26 @@ public class CategoriesActivity extends AppCompatActivity implements RecyclerVie
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.replace(R.id.fragment_container, new CategoriesFragment());
         ft.commit();
+
+        if (funItems.isEmpty() || preItems.isEmpty() || litItems.isEmpty() || codingItems.isEmpty()) {
+            List<Event> funEvents = Event.find(Event.class, "event_category = ?", "Fun and Games");
+            for (Event event : funEvents) {
+                funItems.add(new ViewModel(event.eventName, "http://matrixthefest.org/app_posters/" + event.eventPoster));
+            }
+
+            List<Event> codingEvents = Event.find(Event.class, "event_category = ?", "Coding");
+            for (Event event : codingEvents) {
+                codingItems.add(new ViewModel(event.eventName, "http://matrixthefest.org/app_posters/" + event.eventPoster));
+            }
+            List<Event> preEvents = Event.find(Event.class, "event_category = ?", "Pre-Fest");
+            for (Event event : preEvents) {
+                preItems.add(new ViewModel(event.eventName, "http://matrixthefest.org/app_posters/" + event.eventPoster));
+            }
+            List<Event> litEvents = Event.find(Event.class, "event_category = ?", "Literary");
+            for (Event event : litEvents) {
+                litItems.add(new ViewModel(event.eventName, "http://matrixthefest.org/app_posters/" + event.eventPoster));
+            }
+        }
 //
 //        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
 //        mAdapter = new YourPagerAdapter(getSupportFragmentManager());
@@ -121,6 +144,11 @@ public class CategoriesActivity extends AppCompatActivity implements RecyclerVie
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+    }
+
+    @Override
+    public void onBackPressed (){
+        
     }
 
     private void setupDrawerLayout() {
@@ -195,8 +223,25 @@ public class CategoriesActivity extends AppCompatActivity implements RecyclerVie
             Bundle arguments = getArguments();
             int pageNumber = arguments.getInt(ARG_PAGE);
             RecyclerView recyclerView = new RecyclerView(getActivity());
+            RecyclerViewAdapter adapter;
+            switch (pageNumber) {
+                case 1:
+                    adapter = new RecyclerViewAdapter(codingItems);
+                    break;
+                case 2:
+                    adapter = new RecyclerViewAdapter(preItems);
+                    break;
+                case 3:
+                    adapter = new RecyclerViewAdapter(litItems);
+                    break;
+                case 4:
+                    adapter = new RecyclerViewAdapter(funItems);
+                    break;
+                default:
+                    adapter = new RecyclerViewAdapter(funItems);
+            }
             //recyclerView.setAdapter(new YourRecyclerAdapter(getActivity()));
-            RecyclerViewAdapter adapter = new RecyclerViewAdapter(items);
+
             adapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, ViewModel viewModel) {
@@ -229,7 +274,18 @@ class YourPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return "Tab " + (position + 1);
+        switch (position) {
+            case 0:
+                return "Coding";
+            case 1:
+                return "Pre-Fest";
+            case 2:
+                return "Literary";
+            case 3:
+                return "Fun and Games";
+            default:
+                return "None";
+        }
     }
 
 }

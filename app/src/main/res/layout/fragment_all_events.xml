@@ -3,7 +3,8 @@
     android:layout_height="match_parent" tools:context="com.spit.matrix15.AllEventsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <com.spit.matrix15.EventCloud
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

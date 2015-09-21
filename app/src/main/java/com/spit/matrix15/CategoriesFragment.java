@@ -42,13 +42,6 @@ public class CategoriesFragment extends Fragment {
     public static final String[] Items = {"Mega Events","Technical","Sports","Literary","Coding","Fun Events"};
     public static final int[] Imgs = {R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,
             R.drawable.pic4,R.drawable.pic5,R.drawable.pic6};
-    private static List<ViewModel> items = new ArrayList<>();
-
-    static {
-        for (int i = 0; i < 6; i++) {
-            items.add(new ViewModel(Items[i],Imgs[i]));
-        }
-    }
 
     private DrawerLayout drawerLayout;
     private View content;
@@ -138,6 +131,7 @@ public class CategoriesFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        initToolbar();
         try {
             mListener = (OnFragmentInteractionListener) activity;
         } catch (ClassCastException e) {
@@ -166,5 +160,6 @@ public class CategoriesFragment extends Fragment {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
+
 
 }

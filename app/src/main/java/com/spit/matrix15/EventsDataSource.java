@@ -49,14 +49,14 @@ public class EventsDataSource {
         }
     }
 
-    private EventData cursorToExpenseData(Cursor cursor) {
-        EventData eventData = new EventData();
-        eventData.setId(String.valueOf(cursor.getLong(0)));
-        eventData.setName(cursor.getString(1));
-//        expenseData.setAmount(cursor.getFloat(2));
-//        expenseData.setCategory(cursor.getString(3));
-//        expenseData.setNote(cursor.getString(4));
-        return eventData;
-    }
+//    private EventData cursorToExpenseData(Cursor cursor) {
+//        EventData eventData = new EventData();
+//        eventData.setId(String.valueOf(cursor.getLong(0)));
+//        eventData.setName(cursor.getString(1));
+////        expenseData.setAmount(cursor.getFloat(2));
+////        expenseData.setCategory(cursor.getString(3));
+////        expenseData.setNote(cursor.getString(4));
+//        return eventData;
+//    }
 
 }

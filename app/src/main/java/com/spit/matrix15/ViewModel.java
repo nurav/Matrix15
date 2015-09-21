@@ -18,18 +18,18 @@ package com.spit.matrix15;
 
 public class ViewModel {
     private String text;
-    private int image;
+    private String imageUrl;
 
-    public ViewModel(String text, int image) {
+    public ViewModel(String text, String imageUrl) {
         this. text = text;
-        this.image = image;
+        this.imageUrl = imageUrl;
     }
 
     public String getText() {
         return text;
     }
 
-    public int getImage() {
-        return image;
+    public String getImageUrl() {
+        return imageUrl;
     }
 }

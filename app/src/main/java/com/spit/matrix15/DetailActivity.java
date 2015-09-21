@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -31,6 +32,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,13 +42,19 @@ import com.squareup.picasso.Picasso;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private static final String EXTRA_IMAGE = "com.antonioleiva.materializeyourapp.extraImage";
-    private static final String EXTRA_TITLE = "com.antonioleiva.materializeyourapp.extraTitle";
+    private static final String EXTRA_IMAGE = "com.spit.matrix15.extraImage";
+    private static final String EXTRA_TITLE = "com.spit.matrix15.extraTitle";
     private CollapsingToolbarLayout collapsingToolbarLayout;
+    private TextView descriptionText;
+    private TextView priceText;
+    private TextView venueText;
+    private TextView highlightText1;
+    private TextView highlightText2;
+    private TextView highlightText3;
 
     public static void navigate(AppCompatActivity activity, View transitionImage, ViewModel viewModel) {
         Intent intent = new Intent(activity, DetailActivity.class);
-        intent.putExtra(EXTRA_IMAGE, viewModel.getImage());
+        intent.putExtra(EXTRA_IMAGE, viewModel.getImageUrl());
         intent.putExtra(EXTRA_TITLE, viewModel.getText());
 
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, transitionImage, EXTRA_IMAGE);
@@ -66,25 +74,68 @@ public class DetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         String itemTitle = getIntent().getStringExtra(EXTRA_TITLE);
+        Event event = Event.find(Event.class, "event_name = ?", itemTitle).get(0);
+
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(itemTitle);
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
 
+        descriptionText = (TextView) findViewById(R.id.description);
+        descriptionText.setText(event.eventDescription);
+
+        priceText = (TextView) findViewById(R.id.txt_reg_fee);
+        if(Integer.parseInt(event.fee) != 0)
+            priceText.setText("\u20B9 " + event.fee);
+        else
+            priceText.setText("FREE");
+
+        venueText = (TextView) findViewById(R.id.txt_venue);
+        if (event.venue != null)
+            venueText.setText(event.venue);
+
+        highlightText1 = (TextView) findViewById(R.id.txt_hglt1);
+        if (event.eventHighlight1 != null)
+            highlightText1.setText(getString(R.string.bullet) + " " + event.eventHighlight1);
+
+        highlightText2 = (TextView) findViewById(R.id.txt_hglt2);
+        if (event.eventHighlight2 != null) {
+            highlightText2.setText(getString(R.string.bullet) + " " + event.eventHighlight2);
+            highlightText2.setVisibility(View.VISIBLE);
+        }
+
+        highlightText3 = (TextView) findViewById(R.id.txt_hglt3);
+        if (event.eventHighlight3 != null) {
+            highlightText3.setText(getString(R.string.bullet) + " " + event.eventHighlight3);
+            highlightText3.setVisibility(View.VISIBLE);
+        }
+
         final ImageView image = (ImageView) findViewById(R.id.image);
-        Picasso.with(this).load(getIntent().getIntExtra(EXTRA_IMAGE,R.drawable.drawer_background)).into(image, new Callback() {
-            @Override public void onSuccess() {
-                Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
-                Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
-                    public void onGenerated(Palette palette) {
-                        applyPalette(palette);
+        Picasso.with(this)
+                .load(getIntent().getStringExtra(EXTRA_IMAGE))
+                .placeholder(R.drawable.snackbar_background)
+                .into(image, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+                        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+                            public void onGenerated(Palette palette) {
+                                applyPalette(palette);
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onError() {
+                        Log.d("P", "Couldn't load " + getIntent().getStringExtra(EXTRA_IMAGE));
+                        Bitmap bitmap = Bitmap.createBitmap(1000, 1000, Bitmap.Config.ARGB_8888);
+                        image.setImageBitmap(bitmap);
+                        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+                            public void onGenerated(Palette palette) {
+                                applyPalette(palette);
+                            }
+                        });
                     }
                 });
-            }
-
-            @Override public void onError() {
-
-            }
-        });
 
         TextView title = (TextView) findViewById(R.id.title);
         title.setText(itemTitle);

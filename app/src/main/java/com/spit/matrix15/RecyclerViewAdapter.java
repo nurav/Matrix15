@@ -18,6 +18,7 @@ package com.spit.matrix15;
 
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +52,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         ViewModel item = items.get(position);
         holder.text.setText(item.getText());
         holder.image.setImageBitmap(null);
-        Picasso.with(holder.image.getContext()).load(item.getImage()).into(holder.image);
+        Log.d("P", "Tried to load image from " + item.getImageUrl());
+        Picasso.with(holder.image.getContext()).load(item.getImageUrl()).into(holder.image);
         holder.itemView.setTag(item);
     }
 
