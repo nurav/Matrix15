@@ -182,6 +182,10 @@ public class CategoriesActivity extends AppCompatActivity
                     case R.id.drawer_more:
                         ft.replace(R.id.fragment_container, new AllEventsFragment());
                         ft.commit();
+                        break;
+                    case R.id.drawer_settings:
+                        ft.replace(R.id.fragment_container, new FavoritesFragment());
+                        ft.commit();
 
                 }
 //                Snackbar.make(content, menuItem.getTitle() + " pressed", Snackbar.LENGTH_LONG).show();

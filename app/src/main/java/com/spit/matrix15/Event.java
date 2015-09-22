@@ -19,6 +19,7 @@ public class Event extends SugarRecord<Event> {
     public String fee;
     public String venue;
     public String eventPoster;
+    public String isFavorite;
 
     public Event (){
 

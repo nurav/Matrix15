@@ -25,6 +25,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.ViewCompat;
@@ -51,6 +52,8 @@ public class DetailActivity extends AppCompatActivity {
     private TextView highlightText1;
     private TextView highlightText2;
     private TextView highlightText3;
+    private TextView contactText;
+    private TextView emailText;
 
     public static void navigate(AppCompatActivity activity, View transitionImage, ViewModel viewModel) {
         Intent intent = new Intent(activity, DetailActivity.class);
@@ -73,8 +76,28 @@ public class DetailActivity extends AppCompatActivity {
         setSupportActionBar((Toolbar) findViewById(R.id.detail_toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        String itemTitle = getIntent().getStringExtra(EXTRA_TITLE);
-        Event event = Event.find(Event.class, "event_name = ?", itemTitle).get(0);
+        final String itemTitle = getIntent().getStringExtra(EXTRA_TITLE);
+        final Event event = Event.find(Event.class, "event_name = ?", itemTitle).get(0);
+
+        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (event.isFavorite == null) {
+                    event.isFavorite = "false";
+                }
+                if (!event.isFavorite.equals("true")) {
+                    event.isFavorite = "true";
+                    event.save();
+                    Snackbar.make(findViewById(android.R.id.content), itemTitle + " added to favorites", Snackbar.LENGTH_SHORT).show();
+                } else {
+                    event.isFavorite = "false";
+                    event.save();
+                    Snackbar.make(findViewById(android.R.id.content), itemTitle + " removed from favorites", Snackbar.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(itemTitle);
@@ -108,6 +131,12 @@ public class DetailActivity extends AppCompatActivity {
             highlightText3.setText(getString(R.string.bullet) + " " + event.eventHighlight3);
             highlightText3.setVisibility(View.VISIBLE);
         }
+
+        contactText = (TextView) findViewById(R.id.contacts);
+        contactText.setText("Contact: " + event.contact1 + ", " + event.contact2);
+
+        emailText = (TextView) findViewById(R.id.email);
+        emailText.setText("Email: " + event.email);
 
         final ImageView image = (ImageView) findViewById(R.id.image);
         Picasso.with(this)
