@@ -142,6 +142,7 @@ public class DetailActivity extends AppCompatActivity {
         Picasso.with(this)
                 .load(getIntent().getStringExtra(EXTRA_IMAGE))
                 .placeholder(R.drawable.snackbar_background)
+                .fit()
                 .into(image, new Callback() {
                     @Override
                     public void onSuccess() {
