@@ -179,14 +179,7 @@ public class SplashActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return null;
-        }
 
-        protected void onPostExecute(String file_url) {
-
-            Event.executeQuery("delete from event");
-
-            Event.deleteAll(Event.class);
             for (Event event : eventsList) {
                 boolean nameInDb = false;
                 for (Event event1 : Event.listAll(Event.class)) {
@@ -198,6 +191,11 @@ public class SplashActivity extends AppCompatActivity {
                 if (!nameInDb)
                     event.save();
             }
+
+            return null;
+        }
+
+        protected void onPostExecute(String file_url) {
 
             runOnUiThread(new Runnable() {
                 public void run() {
