@@ -28,22 +28,22 @@
 
         <item
             android:id="@+id/drawer_favourite"
-            android:icon="@drawable/ic_favorite_black_24dp"
+            android:icon="@drawable/ic_action_school"
             android:title="@string/about_us"/>
 
         <item
             android:id="@+id/drawer_downloaded"
-            android:icon="@drawable/ic_file_download_black_24dp"
+            android:icon="@drawable/ic_action_laptop_mac"
             android:title="@string/developers"/>
 
         <item
             android:id="@+id/drawer_more"
-            android:icon="@drawable/ic_more_horiz_black_24dp"
-            android:title="@string/more"/>
+            android:icon="@drawable/ic_action_explicit"
+            android:title="@string/all_events"/>
 
         <item
             android:id="@+id/drawer_settings"
-            android:icon="@drawable/ic_settings_black_24dp"
+            android:icon="@drawable/ic_action_star"
             android:title="@string/settings"/>
 
     </group>
