@@ -152,11 +152,6 @@ public class CategoriesActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public void onBackPressed (){
-        System.exit(0);
-    }
-
     private void setupDrawerLayout() {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -169,22 +164,28 @@ public class CategoriesActivity extends AppCompatActivity
                 switch (menuItemId) {
                     case R.id.drawer_favourite:
                         ft.replace(R.id.fragment_container, new AboutUsFragment());
+                        ft.addToBackStack(null);
+                        ft.addToBackStack(null);
                         ft.commit();
                         break;
                     case  R.id.drawer_home:
                         ft.replace(R.id.fragment_container, new CategoriesFragment());
+                        ft.addToBackStack(null);
                         ft.commit();
                         break;
                     case R.id.drawer_downloaded:
                         ft.replace(R.id.fragment_container, new DevelopersFragment());
+                        ft.addToBackStack(null);
                         ft.commit();
                         break;
                     case R.id.drawer_more:
                         ft.replace(R.id.fragment_container, new AllEventsFragment());
+                        ft.addToBackStack(null);
                         ft.commit();
                         break;
                     case R.id.drawer_settings:
                         ft.replace(R.id.fragment_container, new FavoritesFragment());
+                        ft.addToBackStack(null);
                         ft.commit();
 
                 }
@@ -217,6 +218,8 @@ public class CategoriesActivity extends AppCompatActivity
 
     public static class MyFragment extends Fragment {
         public static final java.lang.String ARG_PAGE = "arg_page";
+        private RecyclerView list;
+        private RecyclerViewAdapter adapter;
 
 
         public MyFragment() {
@@ -263,7 +266,44 @@ public class CategoriesActivity extends AppCompatActivity
             });
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            list = recyclerView;
+            this.adapter = adapter;
             return recyclerView;
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            Bundle arguments = getArguments();
+            int pageNumber = arguments.getInt(ARG_PAGE);
+            RecyclerView recyclerView = list;
+            RecyclerViewAdapter adapter;
+            switch (pageNumber) {
+                case 1:
+                    adapter = new RecyclerViewAdapter(codingItems);
+                    break;
+                case 2:
+                    adapter = new RecyclerViewAdapter(preItems);
+                    break;
+                case 3:
+                    adapter = new RecyclerViewAdapter(litItems);
+                    break;
+                case 4:
+                    adapter = new RecyclerViewAdapter(funItems);
+                    break;
+                default:
+                    adapter = new RecyclerViewAdapter(funItems);
+            }
+            //recyclerView.setAdapter(new YourRecyclerAdapter(getActivity()));
+
+            adapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, ViewModel viewModel) {
+                    DetailActivity.navigate((AppCompatActivity) getActivity(), view.findViewById(R.id.image), viewModel);
+                }
+            });
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         }
     }
 }

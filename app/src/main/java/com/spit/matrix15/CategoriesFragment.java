@@ -91,6 +91,17 @@ public class CategoriesFragment extends Fragment {
         mTabLayout = (TabLayout) v.findViewById(R.id.tab_layout);
         mAdapter = new YourPagerAdapter(getChildFragmentManager());
         mPager = (ViewPager) v.findViewById(R.id.view_pager);
+        initTabLayout();
+
+        content = v.findViewById(R.id.content);
+
+        //final ImageView avatar = (ImageView) v.findViewById(R.id.avatar);
+        //Picasso.with(getActivity()).load(AVATAR_URL).transform(new CircleTransform()).into(avatar);
+        return v;
+    }
+
+    private void initTabLayout() {
+        mAdapter = new YourPagerAdapter(getChildFragmentManager());
         mPager.setAdapter(mAdapter);
         //Notice how the Tab Layout links with the Pager Adapter
         mTabLayout.setTabsFromPagerAdapter(mAdapter);
@@ -98,14 +109,6 @@ public class CategoriesFragment extends Fragment {
         //Notice how The Tab Layout adn View Pager object are linked
         mTabLayout.setupWithViewPager(mPager);
         mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-
-
-
-        content = v.findViewById(R.id.content);
-
-        //final ImageView avatar = (ImageView) v.findViewById(R.id.avatar);
-        //Picasso.with(getActivity()).load(AVATAR_URL).transform(new CircleTransform()).into(avatar);
-        return v;
     }
 
 
@@ -132,13 +135,25 @@ public class CategoriesFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        initToolbar();
         try {
             mListener = (OnFragmentInteractionListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initToolbar();
+        initTabLayout();
+        mTabLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                mTabLayout.setupWithViewPager(mPager);
+            }
+        });
     }
 
     @Override
