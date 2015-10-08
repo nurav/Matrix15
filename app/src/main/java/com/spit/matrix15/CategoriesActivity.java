@@ -16,14 +16,16 @@
 
 package com.spit.matrix15;
 
+import android.content.ContentValues;
 import android.net.Uri;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -38,7 +40,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 
 public class CategoriesActivity extends AppCompatActivity
@@ -57,6 +61,9 @@ public class CategoriesActivity extends AppCompatActivity
     private static List<ViewModel> codingItems = new ArrayList<>();
     private static List<ViewModel> preItems = new ArrayList<>();
     private static List<ViewModel> litItems = new ArrayList<>();
+
+    private static boolean reminderAdded = false;
+    private static final long calID = 1;
 
     static {
 
@@ -102,6 +109,52 @@ public class CategoriesActivity extends AppCompatActivity
             List<Event> litEvents = Event.find(Event.class, "event_category = ?", "Literary");
             for (Event event : litEvents) {
                 litItems.add(new ViewModel(event.eventName, "http://matrixthefest.org/app_posters/" + event.eventPoster));
+            }
+
+            if (!reminderAdded) {
+                Calendar beginTime = Calendar.getInstance();
+                beginTime.set(2015, 9, 9, 9, 00);
+                Calendar endTime = Calendar.getInstance();
+                endTime.set(2015, 9, 9, 5, 00);
+                long startInMillis = beginTime.getTimeInMillis();
+                long endInMillis = endTime.getTimeInMillis();
+                ContentValues eventValues = new ContentValues();
+                eventValues.put(CalendarContract.Events.DTSTART, startInMillis);
+                eventValues.put(CalendarContract.Events.DTEND, endInMillis);
+                eventValues.put(CalendarContract.Events.TITLE, "Matrix 2015");
+                eventValues.put(CalendarContract.Events.DESCRIPTION, "The official Techfest of Sardar Patel Institute of Technology");
+                eventValues.put(CalendarContract.Events.CALENDAR_ID, calID);
+                eventValues.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
+                AddReminderAsyncHandler eventAdder = new AddReminderAsyncHandler(getContentResolver());
+                eventAdder.startInsert(1, null, CalendarContract.Events.CONTENT_URI, eventValues);
+                Uri uri = getContentResolver().insert(CalendarContract.Events.CONTENT_URI, eventValues);
+                long eventID = Long.parseLong(uri.getLastPathSegment());
+                ContentValues reminderValues = new ContentValues();
+                reminderValues.put(CalendarContract.Reminders.MINUTES, 60);
+                reminderValues.put(CalendarContract.Reminders.EVENT_ID, eventID);
+                reminderValues.put(CalendarContract.Reminders.METHOD, CalendarContract.Reminders.METHOD_ALERT);
+                AddReminderAsyncHandler reminderAdder = new AddReminderAsyncHandler(getContentResolver());
+                reminderAdder.startInsert(2, null, CalendarContract.Reminders.CONTENT_URI, reminderValues);
+                beginTime.set(2015, 9, 10, 9, 00);
+                endTime.set(2015, 9, 10, 5, 00);
+                startInMillis = beginTime.getTimeInMillis();
+                endInMillis = endTime.getTimeInMillis();
+                eventValues.clear();
+                eventValues.put(CalendarContract.Events.DTSTART, startInMillis);
+                eventValues.put(CalendarContract.Events.DTEND, endInMillis);
+                eventValues.put(CalendarContract.Events.TITLE, "Matrix 2015");
+                eventValues.put(CalendarContract.Events.DESCRIPTION, "The official Techfest of Sardar Patel Institute of Technology");
+                eventValues.put(CalendarContract.Events.CALENDAR_ID, calID);
+                eventValues.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
+                eventAdder.startInsert(3, null, CalendarContract.Events.CONTENT_URI, eventValues);
+                uri = getContentResolver().insert(CalendarContract.Events.CONTENT_URI, eventValues);
+                eventID = Long.parseLong(uri.getLastPathSegment());
+                reminderValues.clear();
+                reminderValues.put(CalendarContract.Reminders.MINUTES, 60);
+                reminderValues.put(CalendarContract.Reminders.EVENT_ID, eventID);
+                reminderValues.put(CalendarContract.Reminders.METHOD, CalendarContract.Reminders.METHOD_ALERT);
+                reminderAdder.startInsert(4, null, CalendarContract.Reminders.CONTENT_URI, reminderValues);
+                reminderAdded = true;
             }
         }
 //
